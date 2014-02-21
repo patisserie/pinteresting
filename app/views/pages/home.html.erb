@@ -1,5 +1,14 @@
 <div class="jumbotron">
 	<h1>Bornholmer Suckers</h1>
-	<p>Come in and <%= link_to "sign out", about_path, class: 'btn btn-primary' %></p>
+	<% if user_signed_in? %>
+          Congrats - You are now a Bornholmer Sucker!
+     <% else %>
+		<p>
+			<%= link_to "Log in", new_user_session_path, class: "btn btn-primary" %>
+			and
+			<%= link_to "sign out", new_user_registration_path, class: 'btn btn-primary' %>
+	  	</p>
+	  <% end %> 
+	
 </div>
 
